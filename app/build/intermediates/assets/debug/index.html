@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SentralTop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">S</span>
+    <span class="brand-name">SentralTop</span>
+  </div>
+  <div class="saldo">Saldo: <span id="saldoValue">Rp 0</span></div>
+</header>
+
+<main id="app">
+
+  <section id="viewProducts" class="view">
+    <h2 class="section-title">Pilih Produk</h2>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section id="viewNominal" class="view hidden">
+    <button class="back-btn" onclick="goTo('viewProducts')">&larr; Kembali</button>
+    <h2 class="section-title" id="nominalGameTitle">Pilih Nominal</h2>
+
+    <div class="field">
+      <label>User ID</label>
+      <input type="text" id="userId" placeholder="Masukkan User ID">
+    </div>
+    <div class="field" id="serverIdField">
+      <label>Server ID (jika ada)</label>
+      <input type="text" id="serverId" placeholder="Masukkan Server ID">
+    </div>
+
+    <div class="grid" id="nominalGrid"></div>
+  </section>
+
+  <section id="viewCheckout" class="view hidden">
+    <button class="back-btn" onclick="goTo('viewNominal')">&larr; Kembali</button>
+    <h2 class="section-title">Konfirmasi Pesanan</h2>
+
+    <div class="checkout-card">
+      <div class="row"><span>Produk</span><span id="ckProduct">-</span></div>
+      <div class="row"><span>Nominal</span><span id="ckNominal">-</span></div>
+      <div class="row"><span>User ID</span><span id="ckUserId">-</span></div>
+      <div class="row"><span>Harga</span><span id="ckPrice">Rp 0</span></div>
+      <div class="row total"><span>Total Bayar</span><span id="ckTotal">Rp 0</span></div>
+    </div>
+
+    <h3 class="section-title small">Metode Pembayaran</h3>
+    <div class="payment-list" id="paymentList"></div>
+
+    <button class="pay-btn" onclick="submitOrder()">Bayar Sekarang</button>
+  </section>
+
+  <section id="viewSuccess" class="view hidden">
+    <div class="success-card">
+      <div class="success-icon">&#10003;</div>
+      <h2>Pesanan Diproses</h2>
+      <p>Produk akan masuk ke akun kamu dalam beberapa detik.</p>
+      <p class="order-id">ID Pesanan: <span id="orderIdText">-</span></p>
+      <button class="pay-btn" onclick="goTo('viewProducts')">Kembali ke Beranda</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
